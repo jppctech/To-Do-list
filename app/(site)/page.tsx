@@ -216,11 +216,21 @@ const Card = ({ title, id, column, handleDragStart }: CardProps) => {
       <motion.div
         layout
         layoutId={id}
-        draggable="true"
-        onDragStart={(e: any) => handleDragStart(e, { title, id, column })}
+        // Use Framer Motion's drag system separately (if needed)
+        onPointerDown={(e) => {
+          // Any motion specific logic can go here
+        }}
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
-        <p className="text-sm text-neutral-100">{title}</p>
+        {/* Native drag start event for drag-and-drop functionality */}
+        <div
+          draggable="true"
+          onDragStart={(e: DragEvent<HTMLDivElement>) =>
+            handleDragStart(e, { title, id, column })
+          }
+        >
+          <p className="text-sm text-neutral-100">{title}</p>
+        </div>
       </motion.div>
     </>
   );
