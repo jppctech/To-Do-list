@@ -217,7 +217,7 @@ const Card = ({ title, id, column, handleDragStart }: CardProps) => {
         layout
         layoutId={id}
         // Use Framer Motion's drag system separately (if needed)
-        onPointerDown={(e) => {
+        onPointerDown={() => {
           // Any motion specific logic can go here
         }}
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
